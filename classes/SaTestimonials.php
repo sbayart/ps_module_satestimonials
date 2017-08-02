@@ -19,11 +19,22 @@ class SaTestimonials extends module
     {
         if (!parent::install()
             || !$this->registerHook('displayHome')
+            || !$this->installDb()
             || !$this->installTab()
         ) {
             return false;
         }
         return true;
+    }
+
+    public function installDB()
+    {
+        return Db::getInstance()->execute(
+            'CREATE TABLE IF NOT EXISTS '._DB_PREFIX_.'testimonials (
+    	        `id_testimonials` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    	        `testimonials` TEXT NOT NULL,
+                `author` VARCHAR(200) NOT NULL)'
+            );
     }
 
     public function installTab()
@@ -43,11 +54,17 @@ class SaTestimonials extends module
     public function uninstall()
     {
         if (!parent::uninstall()
+        || !$this->uninstallDB()
         || !$this->uninstallTab()
     ) {
         return false;
     }
     return true;
+    }
+
+    public function uninstallDB()
+    {
+        return Db::getInstance()->execute('DROP TABLE '._DB_PREFIX_.'testimonials');
     }
 
     public function uninstallTab()
