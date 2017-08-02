@@ -35,7 +35,7 @@ class AdminTestimonialsController extends ModuleAdminController
             ),
             'submit' => array(
                 'title' => $this->l('Save'),
-				'class' => 'button'
+            'class' => 'button'
             )
         );
         parent::__construct();
