@@ -8,7 +8,7 @@ class satestimonialslistModuleFrontController extends ModuleFrontController
         $this->setTemplate('list.tpl');
         foreach ($testimonialslist as $testimonial) {
             $testimonial['link'] = $this->context->link->getModuleLink(
-                'sastestimonials',
+                'satestimonials',
                 'detailtestimonial',
                 array('id'=>$testimonial['id_testimonials'])
             );
