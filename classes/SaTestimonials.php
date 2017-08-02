@@ -34,7 +34,7 @@ class SaTestimonials extends module
     	        `id_testimonials` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     	        `testimonials` TEXT NOT NULL,
                 `author` VARCHAR(200) NOT NULL)'
-            );
+        );
     }
 
     public function installTab()
@@ -54,12 +54,12 @@ class SaTestimonials extends module
     public function uninstall()
     {
         if (!parent::uninstall()
-        || !$this->uninstallDB()
-        || !$this->uninstallTab()
-    ) {
-        return false;
-    }
-    return true;
+            || !$this->uninstallDB()
+            || !$this->uninstallTab()
+        ) {
+            return false;
+        }
+        return true;
     }
 
     public function uninstallDB()
